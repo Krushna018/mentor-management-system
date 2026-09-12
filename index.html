@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mentor Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <h1>Mentor Management System</h1>
+    </header>
+
+
+    <main class="container">
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="success-message" class="success-message" hidden></div>
+
+
+        <!-- =========================
+             ADD MENTOR FORM
+        ========================== -->
+        <section class="card">
+
+            <h2>Add Mentor</h2>
+
+            <form id="mentor-form" class="mentor-form-grid" novalidate>
+
+                <!-- Mentor Name -->
+                <div class="form-group">
+                    <label for="mentor-name">Mentor Name</label>
+
+                    <input
+                        type="text"
+                        id="mentor-name"
+                        name="mentor-name"
+                        placeholder="Enter mentor name"
+                    >
+
+                    <small
+                        id="mentor-name-error"
+                        class="error-message"
+                    ></small>
+                </div>
+
+
+                <!-- Employee ID -->
+                <div class="form-group">
+                    <label for="employee-id">Employee ID</label>
+
+                    <input
+                        type="text"
+                        id="employee-id"
+                        name="employee-id"
+                        placeholder="Enter employee ID"
+                    >
+
+                    <small
+                        id="employee-id-error"
+                        class="error-message"
+                    ></small>
+                </div>
+
+
+                <!-- Department -->
+                <div class="form-group">
+                    <label for="department">Department</label>
+
+                    <select
+                        id="department"
+                        name="department"
+                    >
+                        <option value="">Select Department</option>
+                        <option value="Computer Engineering">
+                            Computer Engineering
+                        </option>
+                        <option value="Information Technology">
+                            Information Technology
+                        </option>
+                        <option value="ENTC Engineering">
+                            ENTC Engineering
+                        </option>
+                        <option value="Mechanical Engineering">
+                            Mechanical Engineering
+                        </option>
+                        <option value="Civil Engineering">
+                            Civil Engineering
+                        </option>
+                    </select>
+
+                    <small
+                        id="department-error"
+                        class="error-message"
+                    ></small>
+                </div>
+
+
+              
+
+
+                <!-- Maximum Mentees -->
+                <div class="form-group">
+                    <label for="max-mentees">
+                        Maximum Mentees Allowed
+                    </label>
+
+                    <input
+                        type="number"
+                        id="max-mentees"
+                        name="max-mentees"
+                        placeholder="Enter maximum mentees"
+                        min="1"
+                        step="1"
+                    >
+
+                    <small
+                        id="max-mentees-error"
+                        class="error-message"
+                    ></small>
+                </div>
+
+
+                <!-- Profile Photo -->
+                <div class="form-group">
+                    <label for="profile-photo">
+                        Profile Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profile-photo"
+                        name="profile-photo"
+                        accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                    >
+
+                    <small
+                        id="profile-photo-error"
+                        class="error-message"
+                    ></small>
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submit-button"
+                    class="btn btn-primary"
+                    disabled
+                >
+                    Add Mentor
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             MENTOR LIST
+        ========================== -->
+        <section class="card">
+
+            <h2>Mentor List</h2>
+
+            <div class="filter-group">
+                <label for="department-filter">Filter by Department</label>
+                <select id="department-filter">
+                    <option value="">All Departments</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="ENTC Engineering">ENTC Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Employee ID</th>
+                            <th>Department</th>
+                            <th>Maximum Mentees</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="mentor-table-body">
+
+                        <!-- Rows will be added by JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p
+                id="empty-table-message"
+                class="empty-message"
+            >
+                No mentors added yet.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             EDIT POPUP
+        ========================== -->
+        <section
+            class="popup-overlay"
+            id="edit-mentor-popup"
+            hidden
+        >
+
+            <div class="popup">
+
+                <h2>Edit Mentor</h2>
+
+                <form id="edit-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="edit-mentor-name">
+                            Mentor Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="edit-mentor-name"
+                        >
+
+                        <small
+                            id="edit-mentor-name-error"
+                            class="error-message"
+                        ></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="edit-employee-id">
+                            Employee ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="edit-employee-id"
+                        >
+
+                        <small
+                            id="edit-employee-id-error"
+                            class="error-message"
+                        ></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="edit-department">
+                            Department
+                        </label>
+
+                        <select id="edit-department">
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option value="Computer Engineering">
+                                Computer Engineering
+                            </option>
+
+                            <option value="Information Technology">
+                                Information Technology
+                            </option>
+
+                            <option value="ENTC Engineering">
+                                ENTC Engineering
+                            </option>
+
+                            <option value="Mechanical Engineering">
+                                Mechanical Engineering
+                            </option>
+
+                            <option value="Civil Engineering">
+                                Civil Engineering
+                            </option>
+
+                        </select>
+
+                        <small
+                            id="edit-department-error"
+                            class="error-message"
+                        ></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="edit-max-mentees">
+                            Maximum Mentees Allowed
+                        </label>
+
+                        <input
+                            type="number"
+                            id="edit-max-mentees"
+                            min="1"
+                            step="1"
+                        >
+
+                        <small
+                            id="edit-max-mentees-error"
+                            class="error-message"
+                        ></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="edit-profile-photo">
+                            Profile Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            id="edit-profile-photo"
+                            accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                        >
+
+                        <small
+                            id="edit-profile-photo-error"
+                            class="error-message"
+                        ></small>
+
+                        <small class="current-photo">
+                            Leave empty to keep the current photo.
+                        </small>
+                    </div>
+
+
+                    <div class="popup-actions">
+
+                        <button
+                            type="submit"
+                            id="save-edit-button"
+                            class="btn btn-primary"
+                            disabled
+                        >
+                            Save Changes
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancel-edit-button"
+                            class="btn btn-secondary"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DELETE CONFIRMATION
+        ========================== -->
+        <section
+            class="popup-overlay"
+            id="delete-confirmation"
+            hidden
+        >
+
+            <div class="popup delete-popup">
+
+                <h2>Delete Mentor</h2>
+
+                <p>Are you sure?</p>
+
+                <div class="popup-actions">
+
+                    <button
+                        type="button"
+                        id="confirm-delete-button"
+                        class="btn btn-delete"
+                    >
+                        Yes, Delete
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-delete-button"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2026 Mentor Management System
+        </p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
