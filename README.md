@@ -15,6 +15,14 @@
 
 Mentor Management System is a lightweight CRUD application built with HTML, CSS, JavaScript, PHP, and MySQL. It provides a simple workflow for maintaining mentor records and reviewing department capacity from a single browser-based dashboard.
 
+> Built for quick local deployment with XAMPP and a straightforward MySQL data model.
+
+<div align="center">
+
+[Overview](#overview) | [Highlights](#highlights) | [Quick Start](#quick-start) | [API](#api-reference)
+
+</div>
+
 ## Highlights
 
 | Manage | Organize | Maintain |
@@ -26,12 +34,21 @@ Mentor Management System is a lightweight CRUD application built with HTML, CSS,
 
 `HTML5` `CSS3` `Vanilla JavaScript` `PHP / MySQLi` `MySQL` `Apache / XAMPP`
 
+## How It Works
+
+| 01 | 02 | 03 | 04 |
+| --- | --- | --- | --- |
+| **Add** | **Review** | **Update** | **Manage** |
+| Create a mentor record with a photo | Filter mentors by department | Edit details or replace a photo | Delete records and old photos |
+
 ## Quick Start
 
 ### 1. Requirements
 
 - [XAMPP](https://www.apachefriends.org/) with Apache, PHP, and MySQL
 - A modern web browser
+
+> **Local setup:** This project expects Apache to serve the repository and MySQL to provide the `mentor_management` database.
 
 ### 2. Clone the project
 
@@ -106,6 +123,8 @@ mentor-management-system/
 - Only JPG and PNG profile photos are accepted.
 - Update the database credentials before deploying outside a local XAMPP environment.
 - Add authentication and authorization before using the application in production.
+
+> **Production reminder:** The included configuration is intended for local development. Protect the API endpoints and move database credentials into secure environment configuration before deployment.
 
 ## License
 
