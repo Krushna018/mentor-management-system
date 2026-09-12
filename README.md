@@ -1,99 +1,111 @@
+<div align="center">
+
 # Mentor Management System
 
-A lightweight mentor management application built with HTML, CSS, JavaScript, PHP, and MySQL. It allows administrators to add, view, filter, edit, and delete mentor records, including profile photos.
+**A focused dashboard for organizing mentors, departments, capacity, and profile photos.**
 
-## Features
+[![PHP](https://img.shields.io/badge/PHP-8%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-8%2B-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Frontend](https://img.shields.io/badge/Frontend-Vanilla%20JS-F7DF1E?logo=javascript&logoColor=111111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/Use-Personal%20%26%20Educational-2E7D32)](#license)
 
-- Add mentors with name, employee ID, department, maximum mentee capacity, and profile photo
-- View all mentors in a responsive table
-- Filter mentors by department
-- Edit mentor details and replace profile photos
-- Delete mentors and their associated profile photos
-- JPG and PNG image validation
-- JSON-based PHP endpoints for frontend requests
+</div>
 
-## Technology Stack
+## Overview
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- PHP with MySQLi
-- MySQL
-- Apache through XAMPP
+Mentor Management System is a lightweight CRUD application built with HTML, CSS, JavaScript, PHP, and MySQL. It provides a simple workflow for maintaining mentor records and reviewing department capacity from a single browser-based dashboard.
 
-## Requirements
+## Highlights
+
+| Manage | Organize | Maintain |
+| --- | --- | --- |
+| Add, edit, and delete mentors | Filter records by department | Upload JPG and PNG photos |
+| Store employee IDs and capacity | View mentors in a responsive table | Remove replaced profile photos |
+
+## Stack
+
+`HTML5` `CSS3` `Vanilla JavaScript` `PHP / MySQLi` `MySQL` `Apache / XAMPP`
+
+## Quick Start
+
+### 1. Requirements
 
 - [XAMPP](https://www.apachefriends.org/) with Apache, PHP, and MySQL
 - A modern web browser
 
-## Installation
+### 2. Clone the project
 
-1. Clone this repository into the XAMPP web root:
+Run these commands from the XAMPP web root:
 
-	```powershell
-	cd C:\xampp\htdocs
-	git clone https://github.com/Krushna018/mentor-management-system.git
-	```
+```powershell
+cd C:\xampp\htdocs
+git clone https://github.com/Krushna018/mentor-management-system.git
+```
 
-2. Start **Apache** and **MySQL** from the XAMPP Control Panel.
+### 3. Start the services
 
-3. Create the database and table in phpMyAdmin or the MySQL console:
+Open the XAMPP Control Panel and start **Apache** and **MySQL**.
 
-	```sql
-	CREATE DATABASE mentor_management;
-	USE mentor_management;
+### 4. Create the database
 
-	CREATE TABLE mentors (
-		 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		 name VARCHAR(150) NOT NULL,
-		 employee_id VARCHAR(100) NOT NULL,
-		 department VARCHAR(150) NOT NULL,
-		 max_mentees INT UNSIGNED NOT NULL,
-		 photo_path VARCHAR(255) NOT NULL,
-		 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-	);
-	```
+Run the following SQL in phpMyAdmin or the MySQL console:
 
-4. Confirm the database settings in [`css/php/db.php`](css/php/db.php). The default local XAMPP configuration is:
+```sql
+CREATE DATABASE mentor_management;
+USE mentor_management;
 
-	```php
-	$host = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "mentor_management";
-	```
+CREATE TABLE mentors (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    employee_id VARCHAR(100) NOT NULL,
+    department VARCHAR(150) NOT NULL,
+    max_mentees INT UNSIGNED NOT NULL,
+    photo_path VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
-5. Open the application in your browser:
+### 5. Configure and open
 
-	[http://localhost/mentor-management-system/](http://localhost/mentor-management-system/)
+The default local database settings are already configured in [`css/php/db.php`](css/php/db.php):
 
-## Project Structure
+```php
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "mentor_management";
+```
+
+Open the dashboard at [http://localhost/mentor-management-system/](http://localhost/mentor-management-system/).
+
+## Project Layout
 
 ```text
 mentor-management-system/
 |-- index.html             # Main application page
 |-- css/
 |   |-- style.css          # Application styles
-|   `-- php/               # PHP API endpoints and database connection
+|   `-- php/               # PHP API and database connection
 |-- js/
-|   `-- app.js             # Form handling and mentor management logic
-`-- uploads/               # Stored mentor profile photos
+|   `-- app.js             # Form handling and dashboard logic
+`-- uploads/               # Mentor profile photos
 ```
 
-## API Endpoints
+## API Reference
 
-| Endpoint | Method | Purpose |
+| Endpoint | Method | Description |
 | --- | --- | --- |
-| `css/php/get_mentors.php` | GET | Fetch all mentors |
-| `css/php/add_mentor.php` | POST | Create a mentor and upload a profile photo |
-| `css/php/update_mentor.php` | POST | Update mentor details and optionally replace the photo |
-| `css/php/delete_mentor.php` | POST | Delete a mentor and their profile photo |
+| `css/php/get_mentors.php` | `GET` | Return all mentors |
+| `css/php/add_mentor.php` | `POST` | Create a mentor and upload a photo |
+| `css/php/update_mentor.php` | `POST` | Update mentor details and an optional photo |
+| `css/php/delete_mentor.php` | `POST` | Delete a mentor and their photo |
 
-## Notes
+## Important Notes
 
-- The `uploads/` directory must be writable by the web server.
-- The application accepts JPG and PNG profile photos.
-- For production use, update the database credentials and add authentication before deployment.
+- Keep the `uploads/` directory writable by Apache.
+- Only JPG and PNG profile photos are accepted.
+- Update the database credentials before deploying outside a local XAMPP environment.
+- Add authentication and authorization before using the application in production.
 
 ## License
 
