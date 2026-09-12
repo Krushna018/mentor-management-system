@@ -1,6 +1,6 @@
 <div align="center">
 
-# Mentor Management System
+# 🎓 Mentor Management System
 
 **A focused dashboard for organizing mentors, departments, capacity, and profile photos.**
 
@@ -11,7 +11,7 @@
 
 </div>
 
-## Overview
+## 📋 Overview
 
 Mentor Management System is a lightweight CRUD application built with HTML, CSS, JavaScript, PHP, and MySQL. It provides a simple workflow for maintaining mentor records and reviewing department capacity from a single browser-based dashboard.
 
@@ -23,25 +23,25 @@ Mentor Management System is a lightweight CRUD application built with HTML, CSS,
 
 </div>
 
-## Highlights
+## ✨ Highlights
 
 | Manage | Organize | Maintain |
 | --- | --- | --- |
 | Add, edit, and delete mentors | Filter records by department | Upload JPG and PNG photos |
 | Store employee IDs and capacity | View mentors in a responsive table | Remove replaced profile photos |
 
-## Stack
+## 🧰 Stack
 
 `HTML5` `CSS3` `Vanilla JavaScript` `PHP / MySQLi` `MySQL` `Apache / XAMPP`
 
-## How It Works
+## 🔄 How It Works
 
 | 01 | 02 | 03 | 04 |
 | --- | --- | --- | --- |
 | **Add** | **Review** | **Update** | **Manage** |
 | Create a mentor record with a photo | Filter mentors by department | Edit details or replace a photo | Delete records and old photos |
 
-## Quick Start
+## 🚀 Quick Start
 
 ### 1. Requirements
 
@@ -95,7 +95,7 @@ $database = "mentor_management";
 
 Open the dashboard at [http://localhost/mentor-management-system/](http://localhost/mentor-management-system/).
 
-## Project Layout
+## 🗂️ Project Layout
 
 ```text
 mentor-management-system/
@@ -108,7 +108,7 @@ mentor-management-system/
 `-- uploads/               # Mentor profile photos
 ```
 
-## API Reference
+## 🔌 API Reference
 
 | Endpoint | Method | Description |
 | --- | --- | --- |
@@ -117,7 +117,7 @@ mentor-management-system/
 | `css/php/update_mentor.php` | `POST` | Update mentor details and an optional photo |
 | `css/php/delete_mentor.php` | `POST` | Delete a mentor and their photo |
 
-## Important Notes
+## ⚠️ Important Notes
 
 - Keep the `uploads/` directory writable by Apache.
 - Only JPG and PNG profile photos are accepted.
@@ -126,6 +126,6 @@ mentor-management-system/
 
 > **Production reminder:** The included configuration is intended for local development. Protect the API endpoints and move database credentials into secure environment configuration before deployment.
 
-## License
+## 📄 License
 
 This project is available for personal and educational use.
